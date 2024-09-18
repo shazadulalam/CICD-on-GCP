@@ -20,10 +20,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install flake8
+          
       - name: Run flake8
         run: |
           flake8 .
-  
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -38,10 +39,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pytest tensorflow
+
       - name: Run tests
         run: |
-          pytest
-
+          pytest test_model.py  
+          
   build:
     runs-on: ubuntu-latest
     steps:
@@ -51,6 +53,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t gcr.io/gcp-learn-430710/fashion-mnist:$GITHUB_SHA .
+          
       - name: Push Docker image to GCR
         run: |
           echo ${{ secrets.GCP_KEY }} | docker login -u _json_key --password-stdin https://gcr.io
