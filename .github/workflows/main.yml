@@ -52,7 +52,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t gcr.io/gcp-learn-430710/fashion-mnist:$GITHUB_SHA .
+          docker build -t eu.gcr.io/gcp-learn-430710/fashion-mnist:$GITHUB_SHA .
 
       - name: Authenticate with GCP
         run: |
@@ -64,4 +64,4 @@ jobs:
 
       - name: Push Docker image to GCR
         run: |
-          docker push gcr.io/gcp-learn-430710/fashion-mnist:$GITHUB_SHA
+          docker push eu.gcr.io/gcp-learn-430710/fashion-mnist:$GITHUB_SHA

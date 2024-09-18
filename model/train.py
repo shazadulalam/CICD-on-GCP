@@ -4,7 +4,8 @@ import numpy as np
 
 
 def load_data():
-    (train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.fashion_mnist.load_data()
+    (train_images, train_labels), (test_images, 
+        test_labels) = tf.keras.datasets.fashion_mnist.load_data()
     
     # normalization
     train_images = train_images / 255.0
@@ -39,7 +40,8 @@ def train_model():
     test_images = np.expand_dims(test_images, axis=-1)
 
     model = create_model()
-    model.fit(train_images, train_labels, epochs=50, validation_data=(test_images, test_labels))
+    model.fit(train_images, train_labels, epochs=50, 
+        validation_data=(test_images, test_labels))
 
     # saving the model
     model.save('fashion_mnist_model.h5')
