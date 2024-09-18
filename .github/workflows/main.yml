@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install flake8
-          
+
       - name: Run flake8
         run: |
           flake8 .
@@ -42,7 +42,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest test_model.py  
+          pytest tests/
 
   build:
     runs-on: ubuntu-latest
@@ -56,7 +56,7 @@ jobs:
 
       - name: Authenticate with GCP
         run: |
-          echo "${{ secrets.GCP_KEY }}" > /tmp/gcp-key.json
+          echo ${{ secrets.GCP_KEY }} | base64 --decode > /tmp/gcp-key.json
           gcloud auth activate-service-account --key-file=/tmp/gcp-key.json
           gcloud auth configure-docker --quiet
         env:
@@ -65,4 +65,3 @@ jobs:
       - name: Push Docker image to GCR
         run: |
           docker push gcr.io/gcp-learn-430710/fashion-mnist:$GITHUB_SHA
-
