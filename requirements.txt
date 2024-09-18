@@ -1,0 +1,3 @@
+tensorflow
+flake8
+pytest
