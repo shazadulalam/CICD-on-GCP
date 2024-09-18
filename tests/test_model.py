@@ -1,4 +1,5 @@
-from model import create_model
+from model.train import create_model
+
 
 def test_model_creation():
     model = create_model()

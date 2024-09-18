@@ -56,7 +56,7 @@ jobs:
 
       - name: Authenticate with GCP
         run: |
-          echo ${{ secrets.GCP_KEY }} | base64 --decode > /tmp/gcp-key.json
+          echo "${{ secrets.GCP_KEY }}" | base64 --decode > /tmp/gcp-key.json
           gcloud auth activate-service-account --key-file=/tmp/gcp-key.json
           gcloud auth configure-docker --quiet
         env:
