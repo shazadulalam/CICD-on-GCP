@@ -46,7 +46,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/
+          pytest cicd_on_gcp/tests
 
   build:
     runs-on: ubuntu-latest

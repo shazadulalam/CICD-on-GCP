@@ -1,5 +1,9 @@
+import os
+import sys
+sys.path.append(os.path.realpath('.'))
+
 import numpy as np
-from ..model.train import create_model, load_data
+from cicd_on_gcp.model.train import create_model, load_data
 
 def test_model_prediction():
     (_, _), (test_images, test_labels) = load_data()
