@@ -1,4 +1,4 @@
-from CICD-on-GCP.model.train import create_model
+from ..model.train import create_model
 
 
 def test_model_creation():
