@@ -24,6 +24,10 @@ jobs:
       - name: Run flake8
         run: |
           flake8 .
+      
+      - name: Set PYTHONPATH
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:${{ github.workspace }}"
 
   test:
     runs-on: ubuntu-latest
